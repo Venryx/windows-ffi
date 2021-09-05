@@ -28,24 +28,6 @@ export function CaptureScreenshotOfRectContainingAllPositions(positions) {
 // ==========
 export class Screenshot {
     constructor(data) {
-        Object.defineProperty(this, "buffer", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "width", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "height", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         Object.assign(this, data);
     }
     GetPixel(...args) {

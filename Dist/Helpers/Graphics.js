@@ -15,30 +15,10 @@ function IsPlainObject(obj: any) {
 }*/
 export class VColor {
     constructor(red, green, blue, alpha = 0) {
-        Object.defineProperty(this, "red", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: red
-        });
-        Object.defineProperty(this, "green", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: green
-        });
-        Object.defineProperty(this, "blue", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: blue
-        });
-        Object.defineProperty(this, "alpha", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: alpha
-        });
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        this.alpha = alpha;
     }
     static From(source) {
         var _a;

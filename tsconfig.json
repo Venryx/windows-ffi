@@ -14,7 +14,7 @@
 		"declaration": true,
 		"declarationDir": "Dist",
 
-		"useDefineForClassFields": true, // needed for mobx @observable
+		//"useDefineForClassFields": true,
 		"lib": [
 			"es6", "esnext", // fixes AsyncIterator type-missing issue
 			"dom", // temp; fixes error in jsve
