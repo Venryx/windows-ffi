@@ -30,10 +30,9 @@ Some of the most common and/or noteworthy functionalities are shown below.
 import {VRect, CaptureScreenshot, GetForegroundWindowHandle} from "windows-ffi";
 
 // First capture a screenshot of a section of the screen.
-const rectToCapture = new VRect(0, 0, 800, 600);
 const screenshot = CaptureScreenshot({
 	windowHandle: GetForegroundWindowHandle(), // comment to screenshot all windows
-	rectToCapture,
+	rectToCapture: new VRect(0, 0, 800, 600),
 });
 
 // The image-data is now stored in the `screenshot.buffer` Buffer object.
