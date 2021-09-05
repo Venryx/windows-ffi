@@ -1,5 +1,4 @@
-import ffi from "ffi-napi";
-import ref from "ref-napi";
+import { ffi, ref } from "../Manager.js";
 var user32 = new ffi.Library("user32", {
     "GetForegroundWindow": ["int32", []],
     "GetWindowTextA": ["int32", ["int32", "string", "int32"]],

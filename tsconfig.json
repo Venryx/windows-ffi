@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"rootDir": "Source",
 		//"sourceMap": true, // commented; doesn't work currently, so keeping Dist folder cleaner
-		"module": "ES2015",
+		"module": "ES2020",
 		"moduleResolution": "node",
 		"target": "ES2018",
 		"jsx": "react",

@@ -1,5 +1,5 @@
+import {ref} from "../../Manager.js";
 import {BitmapStruct, BitmapInfoHeaderStruct, ColorRefStruct} from "../@Shared/Structs.js";
-import ref from "ref-napi";
 import {FFI_Library} from "../@Shared/Utils.js";
 
 const handle = "uint32";

@@ -1,5 +1,4 @@
-import ffi from "ffi-napi";
-import ref from "ref-napi";
+import {ffi, ref} from "../Manager.js";
 
 export type QuickCache<T> = {value: T, time: number};
 

@@ -1,4 +1,4 @@
-import ffi from "ffi-napi";
+import { ffi } from "../../Manager.js";
 export var SuspendState;
 (function (SuspendState) {
     SuspendState[SuspendState["Sleep"] = 0] = "Sleep";

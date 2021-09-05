@@ -1,5 +1,5 @@
+import {ref} from "../../Manager.js";
 import {PointStruct, RectStruct} from "../@Shared/Structs.js";
-import ref from "ref-napi";
 import {FFI_Library} from "../@Shared/Utils.js";
 
 export const user32 = FFI_Library("user32", {

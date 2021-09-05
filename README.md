@@ -4,11 +4,19 @@ NodeJS wrappers around Windows p-invoke/dll functions in user32, gdi32, etc. (ba
 
 ## Installation
 
-```
-npm i windows-ffi
-```
+* 1\) Install `ffi-napi` in your project: `npm i ffi-napi`
+	* 1.1\) You may need to install the windows-build-tools first for `ffi-napi` to be able to build: `npm install --global --production windows-build-tools`
+* 2\) Install: `npm i windows-ffi`
+	* 2.1\) If you're using `windows-ffi` in symlinked mode, supply the parent project's copy of the `node-ffi` libraries using the init code below:
+		```
+		// Make sure the code below runs before windows-ffi is imported! (example approach: https://stackoverflow.com/a/42817956)
+		import ffi from "ffi-napi";
+		import ref from "ref-napi";
+		import refStructDI from "ref-struct-di";
+		import {SupplyConfig} from "windows-ffi/Dist/@UserSupplied/PreImportConfig.js";
 
-Note: You may need to install the windows-build-tools for the `node-ffi-napi` dependency to be able to build. (command: `npm install --global --production windows-build-tools`)
+		SupplyConfig({ffi, ref, refStructDI});
+		```
 
 ## Usage
 
@@ -38,4 +46,4 @@ for (let x = 0; x < 800; x++) {
 ## Tasks
 
 General:
-* Create an accompanying library for Windows-specific functionalities that do not require the `node-ffi-napi` dependency. (I've had pains with ffi-related building during NodeJS updates, so things that can be done without that dependency is beneficial to bundle separately)
+* Create an accompanying library for Windows-specific functionalities that do not require the `ffi-napi` dependency. (I've had pains with ffi-related building during NodeJS updates, so things that can be done without that dependency is beneficial to bundle separately)

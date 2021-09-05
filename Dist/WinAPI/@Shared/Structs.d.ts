@@ -1,5 +1,4 @@
-import ref from "ref-napi";
-export declare const IntPtr: ref.Type;
+export declare const IntPtr: any;
 export declare const PointStruct: any;
 export declare const RectStruct: any;
 export declare const RectPtr: any;

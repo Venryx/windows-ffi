@@ -1,14 +1,11 @@
-import ffi from "ffi-napi";
-import ref from "ref-napi";
-import import_Struct from "ref-struct-di";
-const Struct = import_Struct(ref);
+import {ffi, ref, StructType} from "../../Manager.js";
 
 export const IntPtr = ref.refType("int");
-export const PointStruct = Struct({
+export const PointStruct = StructType({
 	x: ffi.types.long,
 	y: ffi.types.long,
 });
-export const RectStruct = Struct({
+export const RectStruct = StructType({
 	left: ffi.types.long,
 	top: ffi.types.long,
 	right: ffi.types.long,
@@ -30,7 +27,7 @@ export enum DIB_Color_Mode {
 }
 
 // https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmap
-export const BitmapStruct = Struct({
+export const BitmapStruct = StructType({
 	bmType: ffi.types.long,
 	bmWidth: ffi.types.long,
 	bmHeight: ffi.types.long,
@@ -54,7 +51,7 @@ export const BitmapStruct = Struct({
 });
 
 // https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
-export const BitmapInfoHeaderStruct = Struct({
+export const BitmapInfoHeaderStruct = StructType({
 	// from docs (linked above)
    biSize: ffi.types.uint32,
 	biWidth: ffi.types.int32,
@@ -81,7 +78,7 @@ export const BitmapInfoHeaderStruct = Struct({
    biClrImportant: ffi.types.ulong,*/
 });
 
-export const ColorRefStruct = Struct({
+export const ColorRefStruct = StructType({
    red: ffi.types.byte,
 	green: ffi.types.byte,
 	blue: ffi.types.byte,

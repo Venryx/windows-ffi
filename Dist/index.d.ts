@@ -1,3 +1,4 @@
+export * from "./Manager.js";
 export * from "./WinAPI/@Shared/Structs.js";
 export * from "./WinAPI/GDI32/GDI32.js";
 export * from "./WinAPI/Kernel32/Kernel32.js";

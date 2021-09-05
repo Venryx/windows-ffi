@@ -1,3 +1,5 @@
+export * from "./Manager.js";
+
 // raw windows api
 export * from "./WinAPI/@Shared/Structs.js";
 export * from "./WinAPI/GDI32/GDI32.js";

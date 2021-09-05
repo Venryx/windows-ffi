@@ -1,5 +1,4 @@
-import ffi from "ffi-napi";
-import ref from "ref-napi";
+import {ffi} from "../../Manager.js";
 
 export enum SuspendState {
 	Sleep,
