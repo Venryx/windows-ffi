@@ -4,7 +4,7 @@ import {RectStruct, BitmapStruct, BitmapInfoHeaderStruct, BitmapCompressionMode,
 import {GetForegroundWindowHandle} from "./General.js";
 import {VColor} from "./Graphics.js";
 
-// this approach is called "Fast", but it"s more like "Batched" or "Bulk" -- ie. it"s faster if you have lots of pixels to check, but slower for checking just one (I think)
+// this approach is called "Fast", but it's more like "Batched" or "Bulk" -- ie. it's faster if you have lots of pixels to check, but slower for checking just one (I think)
 export function GetPixelColor_Fast(x: number, y: number) {
 	return GetPixelColors_Fast([new Vector2(x, y)])[0];
 }
@@ -138,7 +138,7 @@ export function CaptureScreenshot(opt: {
 		bi.biSize = BitmapInfoHeaderStruct.size;
 		bi.biWidth = bmpScreen.bmWidth;
 		//bi.biHeight = bmpScreen.bmHeight;
-		bi.biHeight = -bmpScreen.bmHeight; // by making this negative, we indicate that we want buffer"s data to start at top-left pixel, rather than bottom-left
+		bi.biHeight = -bmpScreen.bmHeight; // by making this negative, we indicate that we want buffer's data to start at top-left pixel, rather than bottom-left
 		//bi.biHeight = 3;
 		bi.biPlanes = 1;
 		bi.biBitCount = 32;
@@ -155,7 +155,7 @@ export function CaptureScreenshot(opt: {
 		log("dwBmpSize", dwBmpSize);
 
 		// Starting with 32-bit Windows, GlobalAlloc and LocalAlloc are implemented as wrapper functions that
-		// call HeapAlloc using a handle to the process"s default heap. Therefore, GlobalAlloc and LocalAlloc
+		// call HeapAlloc using a handle to the process's default heap. Therefore, GlobalAlloc and LocalAlloc
 		// have greater overhead than HeapAlloc.
 		// hDIB = kernel32.GlobalAlloc(apiConstants.GHND, dwBmpSize);
 		// const lpBitmap = kernel32.GlobalLock(hDIB);
