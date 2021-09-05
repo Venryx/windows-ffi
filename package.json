@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "chroma-js": "^2.1.2",
-    "ffi-napi": "^3.0.1",
+    "ffi-napi": "^4.0.3",
     "js-vextensions": "^1.0.65"
   }
 }
