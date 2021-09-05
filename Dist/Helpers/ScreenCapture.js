@@ -66,7 +66,21 @@ export function CaptureScreenshot(opt) {
     let hdcMemDC = null;
     let hbmScreen = null;
     let hDIB = null;
-    const log = opt.log ? (...args) => console.log(...args) : () => { };
+    const logOrTime = opt.log || opt.time;
+    let lastStepTime = Date.now();
+    const log = !logOrTime ? () => { } : (...args) => {
+        if (opt.time) {
+            var timeSinceLastStep = Date.now() - lastStepTime;
+            lastStepTime = Date.now();
+            args.push("@Time:", timeSinceLastStep);
+        }
+        const fullLogging = opt.log || args.every(a => (a + "").length < 30);
+        if (fullLogging) {
+            return console.log(...args);
+        }
+        // only "time" was specified; log shortened version
+        return console.log(args[0], "<time log only>", ...args.slice(-2));
+    };
     try {
         if (opt.windowHandle == null)
             opt.windowHandle = user32.GetDesktopWindow();
@@ -142,20 +156,12 @@ export function CaptureScreenshot(opt) {
         //const getDIBitsRes = gdi32.GetDIBits(hdcWindow, hbmScreen, 0, 3, ref.ref(lpBitmap), bi.ref(), DIB_Color_Mode.DIB_RGB_COLORS);
         log("getDIBitsRes", getDIBitsRes);
         log("lpBitmap", lpBitmap);
-        log("Starting");
-        /*for (const c of lpBitmap) {
-            //log("Pixel:", c);
-            if (c > 0) {
-                log(c);
-                break;
-            }
-        }*/
+        /*log("Starting test");
         for (let i = 0; i < lpBitmap.length; i += 4) {
             const color = new VColor(lpBitmap[i + 2], lpBitmap[i + 1], lpBitmap[i + 0], lpBitmap[i + 3]); // yeah, the order is a bit odd
-            if (i < 4 * 20)
-                log("Color:", color);
+            if (i < 4 * 20) log("Color:", color);
         }
-        log("Done");
+        log("Test done");*/
         // clean up
         if (hDIB != null) {
             kernel32.GlobalUnlock(hDIB);
@@ -173,6 +179,7 @@ export function CaptureScreenshot(opt) {
             height: bmpScreen.bmHeight,
         });
         result.buffer = lpBitmap;
+        log("Done");
         return result;
     }
     catch (err) {

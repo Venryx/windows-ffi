@@ -21,4 +21,5 @@ export declare function CaptureScreenshot(opt: {
     /** (relative to the provided window) */
     rectToCapture?: VRect;
     log?: boolean;
+    time?: boolean;
 }): Screenshot;
