@@ -32,7 +32,7 @@ import {VRect, CaptureScreenshot, GetForegroundWindowHandle} from "windows-ffi";
 // First capture a screenshot of a section of the screen.
 const rectToCapture = new VRect(0, 0, 800, 600);
 const screenshot = CaptureScreenshot({
-	windowHandle: GetForegroundWindowHandle(),
+	windowHandle: GetForegroundWindowHandle(), // comment to screenshot all windows
 	rectToCapture,
 });
 
@@ -42,6 +42,12 @@ for (let x = 0; x < 800; x++) {
 	console.log(`Pixel color at [${x}, 0] is:`, screenshot.GetPixel(x, 0).ToHex_RGB());
 }
 ```
+
+Performance:
+* Full-screen (2560x1440), all windows (ie. "desktop" window): ~80ms
+* Full-screen (2560x1440), single window: ~20ms
+* Region (700x200), all windows (ie. "desktop" window): ~50ms
+* Region (700x200), single window: ~3ms
 
 ## Tasks
 
