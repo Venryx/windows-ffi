@@ -37,7 +37,7 @@ const screenshot = CaptureScreenshot({
 });
 
 // The image-data is now stored in the `screenshot.buffer` Buffer object.
-// Access directly (and cheaply) using the helper functions on `screenshot`.
+// Access it directly (and cheaply) using the helper functions on `screenshot`.
 for (let x = 0; x < 800; x++) {
 	console.log(`Pixel color at [${x}, 0] is:`, screenshot.GetPixel(x, 0).ToHex_RGB());
 }
