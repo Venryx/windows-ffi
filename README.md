@@ -47,7 +47,7 @@ Performance:
 * Full-screen (2560x1440), all windows (ie. "desktop" window): ~80ms
 * Full-screen (2560x1440), single window: ~20ms
 * Region (700x200), all windows (ie. "desktop" window): ~50ms
-* Region (700x200), single window: ~3ms
+* Region (700x200), single window: ~4ms
 
 ## Tasks
 
