@@ -27,7 +27,8 @@ Some of the most common and/or noteworthy functionalities are shown below.
 ### Capture image-data from a region on-screen
 
 ```typescript
-import {VRect, CaptureScreenshot, GetForegroundWindowHandle} from "windows-ffi";
+import {CaptureScreenshot, GetForegroundWindowHandle} from "windows-ffi";
+import {VRect} from "js-vextensions"; // import VRect from subdependency (probably temporary)
 
 // First capture a screenshot of a section of the screen.
 const screenshot = CaptureScreenshot({
