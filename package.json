@@ -1,7 +1,7 @@
 {
   "name": "windows-ffi",
   "description": "NodeJS wrappers around Windows p-invoke/dll functions in user32, gdi32, etc. (based on node-ffi-napi)",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Venryx (https://venryx.com)",
   "main": "Dist/index.js",
   "typings": "Dist/index.d.ts",
