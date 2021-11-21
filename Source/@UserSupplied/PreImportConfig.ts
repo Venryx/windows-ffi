@@ -11,7 +11,7 @@ export interface PreImportConfig {
 	StructType?: StructType_type;
 }
 
-export let preImportConfig: PreImportConfig;
+export let preImportConfig: PreImportConfig = {};
 export function SupplyConfig(config: PreImportConfig) {
 	preImportConfig = config;
 }

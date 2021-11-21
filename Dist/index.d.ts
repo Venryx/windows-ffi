@@ -1,3 +1,4 @@
+export { Vector2, VRect } from "js-vextensions";
 export * from "./Manager.js";
 export * from "./WinAPI/@Shared/Structs.js";
 export * from "./WinAPI/GDI32/GDI32.js";

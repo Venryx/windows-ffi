@@ -1,3 +1,5 @@
+// todo: maybe remove the jsve subdep (and just include what is needed directly)
+export { Vector2, VRect } from "js-vextensions";
 export * from "./Manager.js";
 // raw windows api
 export * from "./WinAPI/@Shared/Structs.js";
