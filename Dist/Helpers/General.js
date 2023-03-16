@@ -12,7 +12,7 @@ export function GetForegroundWindowHandle(allowCacheWithin = 100) {
     Object.assign(GetForegroundWindowHandle_cache, { value: result, time: Date.now() });
     return result;
 }
-const GetForegroundWindowText_buffer = new Buffer(8192); // 8192 is first pow-of-2 which works for max-title-length Chrome tabs
+const GetForegroundWindowText_buffer = Buffer.alloc(8192); // 8192 is first pow-of-2 which works for max-title-length Chrome tabs
 GetForegroundWindowText_buffer["type"] = ref.types.CString; // when commented, apparently works fine anyway! (still keeping though, jic)
 var GetForegroundWindowText_cache = {};
 export function GetForegroundWindowText(allowCacheWithin = 100) {
