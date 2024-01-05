@@ -19,8 +19,6 @@ export function GetForegroundWindowHandle(allowCacheWithin = 100): number {
 	return result;
 }
 
-const GetForegroundWindowText_buffer: Buffer = new Buffer(8192); // 8192 is first pow-of-2 which works for max-title-length Chrome tabs
-GetForegroundWindowText_buffer["type"] = ref.types.CString; // when commented, apparently works fine anyway! (still keeping though, jic)
 var GetForegroundWindowText_cache = {} as QuickCache<string>;
 export function GetForegroundWindowText(allowCacheWithin = 100) {
 	if (Date.now() - GetForegroundWindowText_cache.time <= allowCacheWithin) return GetForegroundWindowText_cache.value;
@@ -32,13 +30,16 @@ export function GetForegroundWindowText(allowCacheWithin = 100) {
 	return result;
 }
 
+const GetWindowText_buffer: Buffer = new Buffer(8192); // 8192 is first pow-of-2 which works for max-title-length Chrome tabs
+GetWindowText_buffer["type"] = ref.types.CString; // when commented, apparently works fine anyway! (still keeping though, jic)
+
 export const windowTextCaches = new Map<number, QuickCache<string>>();
 export function GetWindowText(windowHandle: number, allowCacheWithin = 100) {
 	if (Date.now() - (windowTextCaches.get(windowHandle)?.time ?? 0) <= allowCacheWithin) return windowTextCaches.get(windowHandle)!.value;
 
 	//buffer.type = ref.types.CString;
-	let length = user32.GetWindowTextA(windowHandle, GetForegroundWindowText_buffer, GetForegroundWindowText_buffer.length) as number;
-	const result = GetForegroundWindowText_buffer.toString().substr(0, length);
+	let length = user32.GetWindowTextA(windowHandle, GetWindowText_buffer, GetWindowText_buffer.length) as number;
+	const result = GetWindowText_buffer.toString().substr(0, length);
 	windowTextCaches.set(windowHandle, {value: result, time: Date.now()});
 	return result;
 }
