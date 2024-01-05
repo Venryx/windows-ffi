@@ -30,7 +30,7 @@ export function GetForegroundWindowText(allowCacheWithin = 100) {
 	return result;
 }
 
-const GetWindowText_buffer: Buffer = new Buffer(8192); // 8192 is first pow-of-2 which works for max-title-length Chrome tabs
+const GetWindowText_buffer: Buffer = Buffer.alloc(8192); // 8192 is first pow-of-2 which works for max-title-length Chrome tabs
 GetWindowText_buffer["type"] = ref.types.CString; // when commented, apparently works fine anyway! (still keeping though, jic)
 
 export const windowTextCaches = new Map<number, QuickCache<string>>();
